@@ -1,430 +1,799 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Achyuth A R</title>
-<meta name="description" content="Personal site of Achyuth A R: who I am, who I want to be, and how I see myself.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          display: ['"Big Shoulders Display"', 'Impact', 'Arial Narrow', 'sans-serif'],
-          body: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
-          mono: ['"JetBrains Mono"', 'ui-monospace', 'Menlo', 'monospace']
-        }
-      }
-    }
-  };
-</script>
-<style>
-  /*
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Achyuth A R</title>
+    <meta
+      name="description"
+      content="Personal site of Achyuth A R: who I am, who I want to be, and how I see myself."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: [
+                '"Big Shoulders Display"',
+                "Impact",
+                "Arial Narrow",
+                "sans-serif",
+              ],
+              body: ['"Hanken Grotesk"', "system-ui", "sans-serif"],
+              mono: ['"JetBrains Mono"', "ui-monospace", "Menlo", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /*
     Layout concept: a trip log. One long road down the page, three stops:
     where I am, where I'm headed, how I ride. Topographic contour lines sit
     behind the hero like a map under the name. Big Shoulders Display is the
     condensed lettering of road signs and gauge faces; JetBrains Mono is the
     trip-meter readout and the code.
   */
-  :root {
-    --bg: #E6EAEB;        /* fog */
-    --surface: #F1F4F4;   /* lifted panel */
-    --ink: #12181B;       /* asphalt */
-    --muted: #4F5E65;     /* slate */
-    --line: #C3CBCE;      /* contour and hairline */
-    --line-strong: #9AA7AC;
-    --accent: #0B6B5C;    /* pine green */
-    --font-display: "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
-    --font-body: "Hanken Grotesk", system-ui, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0F1417; --surface: #161D21; --ink: #E7EDEE; --muted: #93A3AA;
-      --line: #263238; --line-strong: #3C4A51; --accent: #3FD0B0;
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0F1417; --surface: #161D21; --ink: #E7EDEE; --muted: #93A3AA;
-    --line: #263238; --line-strong: #3C4A51; --accent: #3FD0B0;
-    color-scheme: dark;
-  }
+      :root {
+        --bg: #e6eaeb; /* fog */
+        --surface: #f1f4f4; /* lifted panel */
+        --ink: #12181b; /* asphalt */
+        --muted: #4f5e65; /* slate */
+        --line: #c3cbce; /* contour and hairline */
+        --line-strong: #9aa7ac;
+        --accent: #0b6b5c; /* pine green */
+        --font-display:
+          "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
+        --font-body: "Hanken Grotesk", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0f1417;
+          --surface: #161d21;
+          --ink: #e7edee;
+          --muted: #93a3aa;
+          --line: #263238;
+          --line-strong: #3c4a51;
+          --accent: #3fd0b0;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0f1417;
+        --surface: #161d21;
+        --ink: #e7edee;
+        --muted: #93a3aa;
+        --line: #263238;
+        --line-strong: #3c4a51;
+        --accent: #3fd0b0;
+        color-scheme: dark;
+      }
 
-  [hidden] { display: none !important; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  body::before {
-    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
-    background: var(--bg); z-index: 10;
-  }
-  a { color: inherit; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+      [hidden] {
+        display: none !important;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        background: var(--bg);
+        z-index: 10;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
 
-  .wrap {
-    width: 100%; max-width: 1120px; margin-inline: auto; box-sizing: border-box;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-  }
-  .tag {
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--muted);
-  }
-  .tag b { color: var(--accent); font-weight: 500; }
-  .display {
-    font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
-    line-height: .9; letter-spacing: .005em; text-wrap: balance;
-  }
-  .lede { max-width: 62ch; color: var(--ink); }
-  .muted { color: var(--muted); }
+      .wrap {
+        width: 100%;
+        max-width: 1120px;
+        margin-inline: auto;
+        box-sizing: border-box;
+        padding-left: max(16px, env(safe-area-inset-left, 0px));
+        padding-right: max(16px, env(safe-area-inset-right, 0px));
+      }
+      .tag {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .tag b {
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .display {
+        font-family: var(--font-display);
+        font-weight: 800;
+        text-transform: uppercase;
+        line-height: 0.9;
+        letter-spacing: 0.005em;
+        text-wrap: balance;
+      }
+      .lede {
+        max-width: 62ch;
+        color: var(--ink);
+      }
+      .muted {
+        color: var(--muted);
+      }
 
-  /* header */
-  .site-header {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-    background: var(--bg); border-bottom: 1px solid var(--line);
-  }
-  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
-  .brand { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; }
-  .nav { display: flex; align-items: center; gap: 28px; }
-  .nav a.link { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
-  .nav a.link:hover { color: var(--ink); }
-  .toggle {
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
-    background: transparent; color: var(--ink); border: 1px solid var(--line-strong);
-    padding: 6px 12px; cursor: pointer;
-  }
-  .toggle:hover { border-color: var(--accent); color: var(--accent); }
-  @media (max-width: 640px) { .nav a.link { display: none; } }
+      /* header */
+      .site-header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 20;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .site-header .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        height: 56px;
+      }
+      .brand {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .nav a.link {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--muted);
+      }
+      .nav a.link:hover {
+        color: var(--ink);
+      }
+      .toggle {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--line-strong);
+        padding: 6px 12px;
+        cursor: pointer;
+      }
+      .toggle:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        .nav a.link {
+          display: none;
+        }
+      }
 
-  /* hero */
-  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
-  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-  .hero .wrap { position: relative; padding-block: 56px 72px; }
-  .hero h1 { font-size: clamp(60px, 13.5vw, 164px); margin: 0; }
-  .hero h1 span { display: block; }
-  .hero h1 .dim { color: var(--accent); }
+      /* hero */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .hero .wrap {
+        position: relative;
+        padding-block: 56px 72px;
+      }
+      .hero h1 {
+        font-size: clamp(60px, 13.5vw, 164px);
+        margin: 0;
+      }
+      .hero h1 span {
+        display: block;
+      }
+      .hero h1 .dim {
+        color: var(--accent);
+      }
 
-  /* image placeholders */
-  .ph {
-    position: relative; margin: 0; overflow: hidden; display: grid; place-items: center;
-    background:
-      repeating-linear-gradient(135deg, transparent 0 11px, var(--line) 11px 12px),
-      var(--surface);
-    border: 1px dashed var(--line-strong); max-width: 100%;
-  }
-  .ph .ph-label {
-    position: relative; background: var(--surface); padding: 6px 10px; text-align: center;
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
-  }
-  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .r45 { aspect-ratio: 4 / 5; }
-  .r43 { aspect-ratio: 4 / 3; }
-  .r169 { aspect-ratio: 16 / 9; }
+      /* image placeholders */
+      .ph {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        background:
+          repeating-linear-gradient(
+            135deg,
+            transparent 0 11px,
+            var(--line) 11px 12px
+          ),
+          var(--surface);
+        border: 1px dashed var(--line-strong);
+        max-width: 100%;
+      }
+      .ph .ph-label {
+        position: relative;
+        background: var(--surface);
+        padding: 6px 10px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .r45 {
+        aspect-ratio: 4 / 5;
+      }
+      .r43 {
+        aspect-ratio: 4 / 3;
+      }
+      .r169 {
+        aspect-ratio: 16 / 9;
+      }
 
-  /* sections */
-  .section { padding-block: 88px; }
-  .section-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
-  .section-head h2 { font-size: clamp(44px, 8vw, 88px); margin: 0; }
+      /* sections */
+      .section {
+        padding-block: 88px;
+      }
+      .section-head {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 40px;
+      }
+      .section-head h2 {
+        font-size: clamp(44px, 8vw, 88px);
+        margin: 0;
+      }
 
-  .facts { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line-strong); }
-  .facts li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .facts .k { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+      .facts {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--line-strong);
+      }
+      .facts li {
+        display: grid;
+        grid-template-columns: 7.5rem 1fr;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .facts .k {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding-top: 3px;
+      }
 
-  .into h3 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 34px; line-height: 1; margin: 16px 0 6px; letter-spacing: .01em; }
-  .into p { margin: 0; color: var(--muted); max-width: 44ch; }
-  .into .ph { transition: border-color .2s; }
-  .into:hover .ph { border-color: var(--accent); }
+      .into h3 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 34px;
+        line-height: 1;
+        margin: 16px 0 6px;
+        letter-spacing: 0.01em;
+      }
+      .into p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 44ch;
+      }
+      .into .ph {
+        transition: border-color 0.2s;
+      }
+      .into:hover .ph {
+        border-color: var(--accent);
+      }
 
-  .vow { display: grid; grid-template-columns: 1fr; gap: 10px 40px; padding-block: 28px; border-top: 1px solid var(--line-strong); }
-  .vow:last-child { border-bottom: 1px solid var(--line-strong); }
-  .vow h3 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(34px, 6vw, 68px); line-height: .95; margin: 0; text-wrap: balance; }
-  .vow p { margin: 0; color: var(--muted); max-width: 48ch; align-self: end; }
-  @media (min-width: 768px) { .vow { grid-template-columns: 1.4fr 1fr; align-items: end; } }
+      .vow {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px 40px;
+        padding-block: 28px;
+        border-top: 1px solid var(--line-strong);
+      }
+      .vow:last-child {
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .vow h3 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: clamp(34px, 6vw, 68px);
+        line-height: 0.95;
+        margin: 0;
+        text-wrap: balance;
+      }
+      .vow p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 48ch;
+        align-self: end;
+      }
+      @media (min-width: 768px) {
+        .vow {
+          grid-template-columns: 1.4fr 1fr;
+          align-items: end;
+        }
+      }
 
-  .band { background: var(--surface); border-block: 1px solid var(--line); }
-  .self-big { font-size: clamp(56px, 12vw, 148px); margin: 0; }
-  .self-big em { font-style: normal; color: var(--accent); }
-  .mode { border-top: 1px solid var(--line-strong); padding-top: 18px; }
-  .mode h3 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 40px; line-height: 1; margin: 10px 0 10px; }
-  .mode p { margin: 0; color: var(--muted); max-width: 44ch; }
+      .band {
+        background: var(--surface);
+        border-block: 1px solid var(--line);
+      }
+      .self-big {
+        font-size: clamp(56px, 12vw, 148px);
+        margin: 0;
+      }
+      .self-big em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .mode {
+        border-top: 1px solid var(--line-strong);
+        padding-top: 18px;
+      }
+      .mode h3 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 40px;
+        line-height: 1;
+        margin: 10px 0 10px;
+      }
+      .mode p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 44ch;
+      }
 
-  .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-block; font-family: var(--font-mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
-    text-decoration: none; padding: 12px 18px; border: 1px solid var(--ink); color: var(--ink);
-  }
-  .btn.solid { background: var(--ink); color: var(--bg); }
-  .btn:hover { border-color: var(--accent); background: var(--accent); color: var(--bg); }
-  .mail { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 6vw, 64px); line-height: 1; overflow-wrap: anywhere; margin: 0; }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 12px 18px;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+      }
+      .btn.solid {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .btn:hover {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--bg);
+      }
+      .mail {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(30px, 6vw, 64px);
+        line-height: 1;
+        overflow-wrap: anywhere;
+        margin: 0;
+      }
 
-  footer { border-top: 1px solid var(--line); }
-  footer .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+      footer {
+        border-top: 1px solid var(--line);
+      }
+      footer .wrap {
+        padding-block: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        justify-content: space-between;
+      }
 
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { transition: none !important; }
-  }
-</style>
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="#top">Achyuth A R</a>
+        <nav class="nav" aria-label="Sections">
+          <a class="link" href="#about">Who I am</a>
+          <a class="link" href="#ahead">Who I want to be</a>
+          <a class="link" href="#self">How I see myself</a>
+          <button
+            class="toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch colour theme"
+          >
+            Theme
+          </button>
+        </nav>
+      </div>
+    </header>
 
-</head>
-<body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#top">Achyuth A R</a>
-    <nav class="nav" aria-label="Sections">
-      <a class="link" href="#about">Who I am</a>
-      <a class="link" href="#ahead">Who I want to be</a>
-      <a class="link" href="#self">How I see myself</a>
-      <button class="toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">Theme</button>
-    </nav>
-  </div>
-</header>
-
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <canvas id="contours" aria-hidden="true"></canvas>
-    <div class="wrap">
-      <div class="grid grid-cols-12 gap-x-8 gap-y-10 items-end">
-        <div class="col-span-12 md:col-span-8 min-w-0">
-          <p class="tag mb-6"><b>Personal site</b> &nbsp;/&nbsp; Final year, DSATM</p>
-          <h1 class="display">
-            <span>Achyuth</span>
-            <span class="dim">A R</span>
-          </h1>
-          <p class="lede mt-8 text-xl">
-            A rider and a gamer by heart, who loves books, adventures and writing code,
-            and is always open to something new.
-          </p>
-          <div class="links mt-8">
-            <a class="btn solid" href="#about">Start here</a>
-            <a class="btn" href="#ahead">Where I'm headed</a>
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <canvas id="contours" aria-hidden="true"></canvas>
+        <div class="wrap">
+          <div class="grid grid-cols-12 gap-x-8 gap-y-10 items-end">
+            <div class="col-span-12 md:col-span-8 min-w-0">
+              <p class="tag mb-6">
+                <b>Personal site</b> &nbsp;/&nbsp; Final year, DSATM
+              </p>
+              <h1 class="display">
+                <span>Achyuth</span>
+                <span class="dim">A R</span>
+              </h1>
+              <p class="lede mt-8 text-xl">
+                A rider and a gamer by heart, who loves books, adventures and
+                writing code, and is always open to something new.
+              </p>
+              <div class="links mt-8">
+                <a class="btn solid" href="#about">Start here</a>
+                <a class="btn" href="#ahead">Where I'm headed</a>
+              </div>
+            </div>
+            <div
+              class="col-span-12 md:col-span-4 min-w-0 md:justify-self-end w-full"
+              style="max-width: 360px"
+            >
+              <figure class="ph r45" data-slot="portrait">
+                <span class="ph-label"
+                  >Portrait<br />4:5 &middot; portrait.jpg</span
+                >
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="col-span-12 md:col-span-4 min-w-0 md:justify-self-end w-full" style="max-width: 360px;">
-          <figure class="ph r45" data-slot="portrait">
-            <span class="ph-label">Portrait<br>4:5 &middot; portrait.jpg</span>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- WHO I AM -->
-  <section class="section" id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="tag"><b>Start</b> &nbsp;/&nbsp; Where I am right now</p>
-        <h2 class="display">Who I am</h2>
-      </div>
-      <div class="grid grid-cols-12 gap-x-12 gap-y-10">
-        <div class="col-span-12 md:col-span-7 min-w-0">
-          <p class="lede text-2xl leading-snug" style="font-weight:500;">
-            I'm Achyuth A R, in my final year at DSATM.
+      <!-- WHO I AM -->
+      <section class="section" id="about">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="tag"><b>Start</b> &nbsp;/&nbsp; Where I am right now</p>
+            <h2 class="display">Who I am</h2>
+          </div>
+          <div class="grid grid-cols-12 gap-x-12 gap-y-10">
+            <div class="col-span-12 md:col-span-7 min-w-0">
+              <p class="lede text-2xl leading-snug" style="font-weight: 500">
+                I'm Achyuth A R
+              </p>
+              <p class="lede mt-5 muted">
+                I'm a rider and a gamer by heart, and I'm always open to new
+                experiences. I really like reading books, going on adventures
+                and coding.
+              </p>
+            </div>
+            <div class="col-span-12 md:col-span-5 min-w-0">
+              <ul class="facts">
+                <!-- <li><span class="k">Studying</span><span>Final year at DSATM</span></li> -->
+                <li>
+                  <span class="k">By heart</span><span>Rider and gamer</span>
+                </li>
+                <li>
+                  <span class="k">Into</span
+                  ><span>Books, adventures, code</span>
+                </li>
+                <li>
+                  <span class="k">Always</span
+                  ><span>Open to new experiences</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-12 gap-x-8 gap-y-12 mt-20">
+            <article class="into col-span-12 md:col-span-7 min-w-0">
+              <figure class="ph r169" data-slot="riding">
+                <span class="ph-label"
+                  >Riding<br />16:9 &middot; riding.jpg</span
+                >
+              </figure>
+              <h3>Riding</h3>
+              <p>A rider by heart. This is where I feel most like myself.</p>
+            </article>
+            <article class="into col-span-12 md:col-span-5 min-w-0">
+              <figure class="ph r43" data-slot="gaming">
+                <span class="ph-label"
+                  >Gaming<br />4:3 &middot; gaming.jpg</span
+                >
+              </figure>
+              <h3>Gaming</h3>
+              <p>A gamer by heart, for the challenge and the company.</p>
+            </article>
+            <article
+              class="into col-span-12 sm:col-span-6 md:col-span-4 min-w-0"
+            >
+              <figure class="ph r43" data-slot="reading">
+                <span class="ph-label"
+                  >Reading<br />4:3 &middot; reading.jpg</span
+                >
+              </figure>
+              <h3>Reading</h3>
+              <p>Books take me places when I'm not on the road.</p>
+            </article>
+            <article
+              class="into col-span-12 sm:col-span-6 md:col-span-4 min-w-0"
+            >
+              <figure class="ph r43" data-slot="adventures">
+                <span class="ph-label"
+                  >Adventures<br />4:3 &middot; adventures.jpg</span
+                >
+              </figure>
+              <h3>Adventures</h3>
+              <p>Always up for a new place, a new route, a new experience.</p>
+            </article>
+            <article class="into col-span-12 md:col-span-4 min-w-0">
+              <figure class="ph r43" data-slot="coding">
+                <span class="ph-label"
+                  >Coding<br />4:3 &middot; coding.jpg</span
+                >
+              </figure>
+              <h3>Coding</h3>
+              <p>Where I build things and keep getting better at it.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO I WANT TO BE -->
+      <section class="section" id="ahead" style="padding-top: 0">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="tag"><b>Destination</b> &nbsp;/&nbsp; Where I'm headed</p>
+            <h2 class="display">Who I want<br />to be</h2>
+          </div>
+          <div>
+            <div class="vow">
+              <h3>Stand on my own feet</h3>
+              <p>
+                Someone who can hold their own, and doesn't wait for anyone else
+                to carry the weight.
+              </p>
+            </div>
+            <div class="vow">
+              <h3>Step up for myself</h3>
+              <p>
+                Learning to speak up and make the first move when it matters.
+              </p>
+            </div>
+            <div class="vow">
+              <h3>Work hard, finish it</h3>
+              <p>
+                Go after what I want and achieve it, no matter how hard it gets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW I SEE MYSELF -->
+      <section class="band" id="self">
+        <div class="wrap section" style="padding-block: 88px">
+          <div class="section-head">
+            <p class="tag"><b>On the road</b> &nbsp;/&nbsp; How I see myself</p>
+          </div>
+          <h2 class="display self-big">Better than<br /><em>yesterday.</em></h2>
+          <p class="lede mt-8 muted">
+            That's the whole idea right now. I'm trying to be a little better
+            than I was yesterday.
           </p>
-          <p class="lede mt-5 muted">
-            I'm a rider and a gamer by heart, and I'm always open to new experiences.
-            I really like reading books, going on adventures and coding.
-          </p>
+          <div class="grid grid-cols-12 gap-x-12 gap-y-10 mt-14">
+            <div class="mode col-span-12 md:col-span-6 min-w-0">
+              <p class="tag">In a group</p>
+              <h3>Team player</h3>
+              <p>I work well with others and like being part of a crew.</p>
+            </div>
+            <div class="mode col-span-12 md:col-span-6 min-w-0">
+              <p class="tag">On my own</p>
+              <h3>Solo missions, with a guide</h3>
+              <p>
+                I can take on a mission by myself. I'll want some guidance along
+                the way.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-span-12 md:col-span-5 min-w-0">
-          <ul class="facts">
-            <li><span class="k">Studying</span><span>Final year at DSATM</span></li>
-            <li><span class="k">By heart</span><span>Rider, gamer</span></li>
-            <li><span class="k">Into</span><span>Books, adventures, code</span></li>
-            <li><span class="k">Always</span><span>Open to new experiences</span></li>
-          </ul>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="tag"><b>Say hi</b> &nbsp;/&nbsp; Find me</p>
+          </div>
+          <p class="mail">achyuthar05@gmail.com</p>
+          <div class="links mt-8">
+            <a
+              class="btn solid"
+              href="https://github.com/Arcus286"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              class="btn"
+              href="https://www.linkedin.com/in/achyuth-a-r/"
+              data-placeholder="linkedin"
+              >LinkedIn</a
+            >
+            <a
+              class="btn"
+              href="https://www.instagram.com/achyuth_ar05/?hl=en"
+              data-placeholder="instagram"
+              >Instagram</a
+            >
+          </div>
         </div>
-      </div>
+      </section>
+    </main>
 
-      <div class="grid grid-cols-12 gap-x-8 gap-y-12 mt-20">
-        <article class="into col-span-12 md:col-span-7 min-w-0">
-          <figure class="ph r169" data-slot="riding"><span class="ph-label">Riding<br>16:9 &middot; riding.jpg</span></figure>
-          <h3>Riding</h3>
-          <p>A rider by heart. This is where I feel most like myself.</p>
-        </article>
-        <article class="into col-span-12 md:col-span-5 min-w-0">
-          <figure class="ph r43" data-slot="gaming"><span class="ph-label">Gaming<br>4:3 &middot; gaming.jpg</span></figure>
-          <h3>Gaming</h3>
-          <p>A gamer by heart, for the challenge and the company.</p>
-        </article>
-        <article class="into col-span-12 sm:col-span-6 md:col-span-4 min-w-0">
-          <figure class="ph r43" data-slot="reading"><span class="ph-label">Reading<br>4:3 &middot; reading.jpg</span></figure>
-          <h3>Reading</h3>
-          <p>Books take me places when I'm not on the road.</p>
-        </article>
-        <article class="into col-span-12 sm:col-span-6 md:col-span-4 min-w-0">
-          <figure class="ph r43" data-slot="adventures"><span class="ph-label">Adventures<br>4:3 &middot; adventures.jpg</span></figure>
-          <h3>Adventures</h3>
-          <p>Always up for a new place, a new route, a new experience.</p>
-        </article>
-        <article class="into col-span-12 md:col-span-4 min-w-0">
-          <figure class="ph r43" data-slot="coding"><span class="ph-label">Coding<br>4:3 &middot; coding.jpg</span></figure>
-          <h3>Coding</h3>
-          <p>Where I build things and keep getting better at it.</p>
-        </article>
+    <footer>
+      <div class="wrap">
+        <span class="tag">Achyuth A R</span>
+        <span class="tag">Bengaluru &middot; <span id="year"></span></span>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- WHO I WANT TO BE -->
-  <section class="section" id="ahead" style="padding-top: 0;">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="tag"><b>Destination</b> &nbsp;/&nbsp; Where I'm headed</p>
-        <h2 class="display">Who I want<br>to be</h2>
-      </div>
-      <div>
-        <div class="vow">
-          <h3>Stand on my own feet</h3>
-          <p>Someone who can hold their own, and doesn't wait for anyone else to carry the weight.</p>
-        </div>
-        <div class="vow">
-          <h3>Step up for myself</h3>
-          <p>Learning to speak up and make the first move when it matters.</p>
-        </div>
-        <div class="vow">
-          <h3>Work hard, finish it</h3>
-          <p>Go after what I want and achieve it, no matter how hard it gets.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+      /* ---- 1. Photos: put your image paths here. Empty = placeholder stays. ---- */
+      const IMAGES = {
+        portrait: "./images/portrait.jpeg", // e.g. "images/portrait.jpg"
+        riding: "./images/riding.jpg",
+        gaming: "./images/gaming.jpeg",
+        reading: "./images/reading.jpeg",
+        adventures: "./images/adventure.jpeg",
+        coding: "./images/coding.jpeg",
+      };
+      document.querySelectorAll(".ph[data-slot]").forEach(function (fig) {
+        var src = IMAGES[fig.dataset.slot];
+        if (!src) return;
+        var img = new Image();
+        img.alt = fig.dataset.slot;
+        img.onload = function () {
+          fig.querySelector(".ph-label").hidden = true;
+          fig.appendChild(img);
+        };
+        img.src = src;
+      });
 
-  <!-- HOW I SEE MYSELF -->
-  <section class="band" id="self">
-    <div class="wrap section" style="padding-block: 88px;">
-      <div class="section-head">
-        <p class="tag"><b>On the road</b> &nbsp;/&nbsp; How I see myself</p>
-      </div>
-      <h2 class="display self-big">Better than<br><em>yesterday.</em></h2>
-      <p class="lede mt-8 muted">
-        That's the whole idea right now. I'm trying to be a little better than I was yesterday.
-      </p>
-      <div class="grid grid-cols-12 gap-x-12 gap-y-10 mt-14">
-        <div class="mode col-span-12 md:col-span-6 min-w-0">
-          <p class="tag">In a group</p>
-          <h3>Team player</h3>
-          <p>I work well with others and like being part of a crew.</p>
-        </div>
-        <div class="mode col-span-12 md:col-span-6 min-w-0">
-          <p class="tag">On my own</p>
-          <h3>Solo missions, with a guide</h3>
-          <p>I can take on a mission by myself. I'll want some guidance along the way.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      /* ---- 2. Theme toggle ---- */
+      var root = document.documentElement;
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      try {
+        var saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark")
+          root.setAttribute("data-theme", saved);
+      } catch (e) {}
+      document
+        .getElementById("theme-toggle")
+        .addEventListener("click", function () {
+          var attr = root.getAttribute("data-theme");
+          var isDark = attr ? attr === "dark" : mq.matches;
+          var next = isDark ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+        });
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="tag"><b>Say hi</b> &nbsp;/&nbsp; Find me</p>
-      </div>
-      <p class="mail">achyuthar05@gmail.com</p>
-      <div class="links mt-8">
-        <a class="btn solid" href="https://github.com/Arcus286" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/achyuth-a-r/" data-placeholder="linkedin">LinkedIn</a>
-        <a class="btn" href="https://www.instagram.com/achyuth_ar05/?hl=en" data-placeholder="instagram">Instagram</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span class="tag">Achyuth A R</span>
-    <span class="tag">Bengaluru &middot; <span id="year"></span></span>
-  </div>
-</footer>
-
-<script>
-  /* ---- 1. Photos: put your image paths here. Empty = placeholder stays. ---- */
-  const IMAGES = {
-    portrait: "./images/portrait.jpeg",    // e.g. "images/portrait.jpg"
-    riding: "./images/riding.jpg",
-    gaming: "./images/gaming.jpeg",
-    reading: "./images/reading.jpeg",
-    adventures: "./images/adventure.jpeg",
-    coding: "./images/coding.jpeg"
-  };
-  document.querySelectorAll(".ph[data-slot]").forEach(function (fig) {
-    var src = IMAGES[fig.dataset.slot];
-    if (!src) return;
-    var img = new Image();
-    img.alt = fig.dataset.slot;
-    img.onload = function () { fig.querySelector(".ph-label").hidden = true; fig.appendChild(img); };
-    img.src = src;
-  });
-
-  /* ---- 2. Theme toggle ---- */
-  var root = document.documentElement;
-  var mq = window.matchMedia("(prefers-color-scheme: dark)");
-  try {
-    var saved = localStorage.getItem("theme");
-    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
-  } catch (e) {}
-  document.getElementById("theme-toggle").addEventListener("click", function () {
-    var attr = root.getAttribute("data-theme");
-    var isDark = attr ? attr === "dark" : mq.matches;
-    var next = isDark ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) {}
-  });
-
-  /* ---- 3. Contour lines behind the hero ---- */
-  var canvas = document.getElementById("contours");
-  var ctx = canvas.getContext("2d");
-  function drawContours() {
-    var rect = canvas.parentElement.getBoundingClientRect();
-    var dpr = window.devicePixelRatio || 1;
-    var w = rect.width, h = rect.height;
-    canvas.width = Math.round(w * dpr);
-    canvas.height = Math.round(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = getComputedStyle(root).getPropertyValue("--line").trim() || "#C3CBCE";
-    ctx.lineWidth = 1;
-    var peaks = [
-      { x: w * 0.84, y: h * 0.30, step: 30, rings: 26, ph: 0.6 },
-      { x: w * 0.02, y: h * 1.02, step: 26, rings: 24, ph: 2.1 }
-    ];
-    peaks.forEach(function (p) {
-      for (var k = 1; k <= p.rings; k++) {
-        var base = k * p.step;
-        ctx.beginPath();
-        for (var i = 0; i <= 200; i++) {
-          var a = (i / 200) * Math.PI * 2;
-          var d = 1 + 0.15 * Math.sin(2 * a + p.ph) + 0.09 * Math.sin(3 * a + k * 0.06 + p.ph * 2) + 0.05 * Math.sin(5 * a - k * 0.045);
-          var x = p.x + Math.cos(a) * base * d * 1.25;
-          var y = p.y + Math.sin(a) * base * d * 0.9;
-          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-        }
-        ctx.closePath();
-        ctx.stroke();
+      /* ---- 3. Contour lines behind the hero ---- */
+      var canvas = document.getElementById("contours");
+      var ctx = canvas.getContext("2d");
+      function drawContours() {
+        var rect = canvas.parentElement.getBoundingClientRect();
+        var dpr = window.devicePixelRatio || 1;
+        var w = rect.width,
+          h = rect.height;
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, w, h);
+        ctx.strokeStyle =
+          getComputedStyle(root).getPropertyValue("--line").trim() || "#C3CBCE";
+        ctx.lineWidth = 1;
+        var peaks = [
+          { x: w * 0.84, y: h * 0.3, step: 30, rings: 26, ph: 0.6 },
+          { x: w * 0.02, y: h * 1.02, step: 26, rings: 24, ph: 2.1 },
+        ];
+        peaks.forEach(function (p) {
+          for (var k = 1; k <= p.rings; k++) {
+            var base = k * p.step;
+            ctx.beginPath();
+            for (var i = 0; i <= 200; i++) {
+              var a = (i / 200) * Math.PI * 2;
+              var d =
+                1 +
+                0.15 * Math.sin(2 * a + p.ph) +
+                0.09 * Math.sin(3 * a + k * 0.06 + p.ph * 2) +
+                0.05 * Math.sin(5 * a - k * 0.045);
+              var x = p.x + Math.cos(a) * base * d * 1.25;
+              var y = p.y + Math.sin(a) * base * d * 0.9;
+              if (i === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+          }
+        });
       }
-    });
-  }
-  drawContours();
-  window.addEventListener("resize", drawContours);
-  new MutationObserver(drawContours).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-  if (mq.addEventListener) mq.addEventListener("change", drawContours);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawContours);
+      drawContours();
+      window.addEventListener("resize", drawContours);
+      new MutationObserver(drawContours).observe(root, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+      });
+      if (mq.addEventListener) mq.addEventListener("change", drawContours);
+      if (document.fonts && document.fonts.ready)
+        document.fonts.ready.then(drawContours);
 
-  /* ---- 4. Footer year ---- */
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-</body>
+      /* ---- 4. Footer year ---- */
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
